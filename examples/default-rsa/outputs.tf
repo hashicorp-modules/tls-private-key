@@ -6,13 +6,13 @@ Run the below command to add this private key to the list maintained by ssh-agen
 
   ssh-add ${module.tls_private_key.private_key_filename}
 
-The public part of the key loaded into the agent ("public_key_pem" output) must be placed on the target system in ~/.ssh/authorized_keys.
+The public part of the key loaded into the agent ("public_key_openssh" output) must be placed on the target system in ~/.ssh/authorized_keys.
 
-To SSH into a host using this private key, you can use the below command after updating USER & HOST.
+To SSH into a host using this private key, you can use the below command after updating USER@HOST.
 
   ssh -i ${module.tls_private_key.private_key_filename} USER@HOST
 
-In order to force the generation of a new key, the private key instance can be "tainted" using the below command.
+To force the generation of a new key, the private key instance can be "tainted" using the below command.
 
   terraform taint -module=tls_private_key tls_private_key.main
 README
@@ -22,12 +22,12 @@ output "algorithm" {
   value = "${module.tls_private_key.algorithm}"
 }
 
-output "private_key_pem" {
-  value = "${module.tls_private_key.private_key_pem}"
-}
-
 output "private_key_filename" {
   value = "${module.tls_private_key.private_key_filename}"
+}
+
+output "private_key_pem" {
+  value = "${module.tls_private_key.private_key_pem}"
 }
 
 output "public_key_pem" {
