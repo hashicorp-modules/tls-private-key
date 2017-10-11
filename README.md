@@ -1,6 +1,9 @@
 # TLS Private Key Terraform Module
 
-Generates a secure RSA or ECDAS private key, encodes it as PEM, downloads it locally, and updates the local key file permission to 0600.
+- Generates a secure RSA or ECDAS private key private key
+- Encodes the private key as PEM
+- Downloads the private locally and updates the local key file permission to 0600
+- Creates an AWS SSH keypair
 
 ## Environment Variables
 
