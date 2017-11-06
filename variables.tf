@@ -1,6 +1,11 @@
-variable "private_key_filename" {
-  default     = "private-key.pem"
-  description = "(Optional) Filename to write the private key data to. Defaults to \"private-key.pem\"."
+variable "provision" {
+  default     = "true"
+  description = "Override to prevent provisioning resources in this module, defaults to \"true\"."
+}
+
+variable "name" {
+  default     = ""
+  description = "(Optional) Filename to write the private key data to."
 }
 
 variable "algorithm" {

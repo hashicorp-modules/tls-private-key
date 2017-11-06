@@ -1,3 +1,3 @@
-variable "private_key_filename" { }
-variable "algorithm"            { }
-variable "ecdsa_curve"          { }
+variable "name"        { }
+variable "algorithm"   { }
+variable "ecdsa_curve" { }

@@ -1,3 +1,3 @@
-variable "private_key_filename" { }
-variable "algorithm"            { }
-variable "rsa_bits"             { }
+variable "name"      { }
+variable "algorithm" { }
+variable "rsa_bits"  { }

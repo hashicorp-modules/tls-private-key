@@ -22,6 +22,10 @@ output "algorithm" {
   value = "${module.tls_private_key.algorithm}"
 }
 
+output "private_key_name" {
+  value = "${module.tls_private_key.private_key_name}"
+}
+
 output "private_key_filename" {
   value = "${module.tls_private_key.private_key_filename}"
 }
