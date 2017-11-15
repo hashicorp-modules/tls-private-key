@@ -7,11 +7,12 @@ output "private_key_pem" {
 }
 
 output "private_key_name" {
-  value = "${var.name != "" ? var.name : random_id.name.hex}"
+  value = "${random_id.name.hex}"
 }
 
 output "private_key_filename" {
-  value = "${format("%s.pem", var.name != "" ? var.name : random_id.name.hex)}"
+  value = "${format("%s.pem", random_id.name.hex)}"
+  # value = "${var.name != "" ? format("%s.pem", var.name) : format("%s.pem", random_id.name.hex)}"
 }
 
 output "public_key_pem" {
