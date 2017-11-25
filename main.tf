@@ -2,14 +2,6 @@ terraform {
   required_version = ">= 0.9.3"
 }
 
-resource "tls_private_key" "main" {
-  count = "${var.provision == "true" ? 1 : 0}"
-
-  algorithm   = "${var.algorithm}"
-  rsa_bits    = "${var.rsa_bits}"
-  ecdsa_curve = "${var.ecdsa_curve}"
-}
-
 resource "random_id" "name" {
   count = "${var.provision == "true" ? 1 : 0}"
 
@@ -17,16 +9,14 @@ resource "random_id" "name" {
   prefix      = "${var.name}-"
 }
 
-resource "null_resource" "main" {
+resource "tls_private_key" "key" {
   count = "${var.provision == "true" ? 1 : 0}"
 
-  provisioner "local-exec" {
-    command = "echo \"${tls_private_key.main.private_key_pem}\" > ${format("%s.pem", random_id.name.hex)}"
-    # command = "echo \"${tls_private_key.main.private_key_pem}\" > ${var.name != "" ? format("%s.pem", var.name) : format("%s.pem", random_id.name.hex)}"
-  }
+  algorithm   = "${var.algorithm}"
+  rsa_bits    = "${var.rsa_bits}"
+  ecdsa_curve = "${var.ecdsa_curve}"
 
   provisioner "local-exec" {
-    command = "chmod 600 ${format("%s.pem", random_id.name.hex)}"
-    # command = "chmod 600 ${var.name != "" ? format("%s.pem", var.name) : format("%s.pem", random_id.name.hex)}"
+    command = "echo '${tls_private_key.key.private_key_pem}' > ${format("%s.key.pem", random_id.name.hex)} && chmod 600 ${format("%s.key.pem", random_id.name.hex)}"
   }
 }
