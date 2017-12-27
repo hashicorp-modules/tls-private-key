@@ -2,7 +2,7 @@
 
 - Generates a secure RSA or ECDAS private key
 - Encodes the private key as PEM
-- Downloads the private key locally and updates the file permission to 0600
+- Downloads the private key locally and sets the file permission to 0600
 
 ## Environment Variables
 
@@ -15,6 +15,7 @@ This module doesn't require any environment variables to be set.
 - `algorithm`: [Optional] The name of the algorithm to use for the key. Currently-supported values are "RSA" and "ECDSA". Defaults to "RSA"
 - `rsa_bits`: [Optional] When algorithm is "RSA", the size of the generated RSA key in bits. Defaults to "2048".
 - `ecdsa_curve`: [Optional] When algorithm is "ECDSA", the name of the elliptic curve to use. May be any one of "P224", "P256", "P384" or "P521". Defaults to \"P224\".
+- `permissions`: [Optional] The Unix file permission to assign to the cert files (e.g. 0600), defaults to "0600".
 
 ## Outputs
 
