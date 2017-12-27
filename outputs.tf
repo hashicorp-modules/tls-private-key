@@ -1,23 +1,23 @@
 output "algorithm" {
-  value = "${tls_private_key.key.algorithm}"
+  value = "${element(tls_private_key.key.*.algorithm, 0)}"
 }
 
 output "private_key_pem" {
-  value = "${tls_private_key.key.private_key_pem}"
+  value = "${element(tls_private_key.key.*.private_key_pem, 0)}"
 }
 
 output "private_key_name" {
-  value = "${random_id.name.hex}"
+  value = "${element(random_id.name.*.hex, 0)}"
 }
 
 output "private_key_filename" {
-  value = "${format("%s.key.pem", random_id.name.hex)}"
+  value = "${format("%s.key.pem", element(random_id.name.*.hex, 0))}"
 }
 
 output "public_key_pem" {
-  value = "${tls_private_key.key.public_key_pem}"
+  value = "${element(tls_private_key.key.*.public_key_pem, 0)}"
 }
 
 output "public_key_openssh" {
-  value = "${tls_private_key.key.public_key_openssh}"
+  value = "${element(tls_private_key.key.*.public_key_openssh, 0)}"
 }
