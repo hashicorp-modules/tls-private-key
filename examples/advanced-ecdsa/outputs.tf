@@ -10,7 +10,7 @@ To SSH into a host using this private key, you can use the below command after u
 
 To force the generation of a new key, the private key instance can be "tainted" using the below command.
 
-  terraform taint -module=tls_private_key tls_private_key.main
+  terraform taint -module=tls_private_key tls_private_key.key
 README
 }
 
