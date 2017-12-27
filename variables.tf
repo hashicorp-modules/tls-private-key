@@ -1,6 +1,6 @@
-variable "provision" {
-  default     = "true"
-  description = "Override to prevent provisioning resources in this module, defaults to \"true\"."
+variable "count" {
+  default     = "1"
+  description = "Module count, defaults to \"1\"."
 }
 
 variable "name" {

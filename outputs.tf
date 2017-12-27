@@ -7,11 +7,11 @@ output "private_key_pem" {
 }
 
 output "private_key_name" {
-  value = "${random_id.name.hex}"
+  value = "${random_id.name.*.hex}"
 }
 
 output "private_key_filename" {
-  value = "${format("%s.key.pem", random_id.name.hex)}"
+  value = "${formatlist("%s.key.pem", random_id.name.*.hex)}"
 }
 
 output "public_key_pem" {
