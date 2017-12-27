@@ -3,8 +3,6 @@ terraform {
 }
 
 resource "random_id" "name" {
-  count = "${var.provision == "true" ? 1 : 0}"
-
   byte_length = 4
   prefix      = "${var.name}-"
 }
