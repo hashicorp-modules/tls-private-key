@@ -17,7 +17,7 @@ resource "tls_private_key" "key" {
   ecdsa_curve = "${var.ecdsa_curve}"
 }
 
-resource "null_resource" "key" {
+resource "null_resource" "download_key" {
   count = "${var.count}"
 
   provisioner "local-exec" {
