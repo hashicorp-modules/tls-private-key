@@ -4,6 +4,8 @@
 - Encodes the private key as PEM
 - Downloads the private key locally and sets the file permission to 0600
 
+Checkout [examples](./examples) for fully functioning examples.
+
 ## Environment Variables
 
 This module doesn't require any environment variables to be set.
